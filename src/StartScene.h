@@ -4,6 +4,7 @@
 
 #include "Scene.h"
 #include "Label.h"
+#include "StartButton.h"
 
 class StartScene : public Scene
 {
@@ -20,8 +21,15 @@ public:
 	virtual void handleEvents() override;
 	virtual void start() override;
 
+	// getters
+	glm::vec2 getMousePosition();
+
 private:
 	Label* m_pStartLabel;
+
+	glm::vec2 m_mousePosition;
+
+	StartButton* m_pStartButton;
 	
 };
 

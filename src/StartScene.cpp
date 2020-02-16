@@ -6,9 +6,10 @@
 #include "TileComparators.h"
 #include <iomanip>
 
+//TheGame::Instance()->changeSceneState(SceneState::LEVEL1_SCENE);
 StartScene::StartScene()
 {
-	StartScene::start();
+	start();
 }
 
 StartScene::~StartScene()
@@ -18,11 +19,15 @@ StartScene::~StartScene()
 void StartScene::draw()
 {
 	m_pStartLabel->draw();
+	m_pStartButton->draw();
+
 	
 }
 
 void StartScene::update()
 {
+	m_pStartButton->setMousePosition(m_mousePosition);
+	m_pStartButton->ButtonClick();
 }
 
 void StartScene::clean()
@@ -41,6 +46,31 @@ void StartScene::handleEvents()
 		{
 		case SDL_QUIT:
 			TheGame::Instance()->quit();
+			break;
+		case SDL_MOUSEMOTION:
+			m_mousePosition.x = event.motion.x;
+			m_mousePosition.y = event.motion.y;
+			/*std::cout << "Mouse X: " << m_mousePosition.x << std::endl;
+			std::cout << "Mouse Y: " << m_mousePosition.y << std::endl;
+			std::cout << "---------------------------------------------" << std::endl;*/
+			break;
+		case SDL_MOUSEBUTTONDOWN:
+			switch (event.button.button)
+			{
+			case SDL_BUTTON_LEFT:
+				m_pStartButton->setMouseButtonClicked(true);
+				TheGame::Instance()->changeSceneState(SceneState::LEVEL1_SCENE);
+				break;
+			}
+			break;
+
+		case SDL_MOUSEBUTTONUP:
+			switch (event.button.button)
+			{
+			case SDL_BUTTON_LEFT:
+				m_pStartButton->setMouseButtonClicked(false);
+				break;
+			}
 			break;
 		case SDL_KEYDOWN:
 			switch (event.key.keysym.sym)
@@ -67,9 +97,17 @@ void StartScene::handleEvents()
 void StartScene::start()
 {
 	SDL_Color blue = { 0, 0, 255, 255 };
-	m_pStartLabel = new Label("START SCENE", "Consolas", 40, blue, glm::vec2(400.0f, 40.0f));
+	m_pStartLabel = new Label("Press Start To Play", "Consolas", 40, blue, glm::vec2(400.0f, 40.0f));
 	m_pStartLabel->setParent(this);
 	addChild(m_pStartLabel);
 
+	m_pStartButton = new StartButton();
+	m_pStartButton->setMouseButtonClicked(false);
+
 	
+}
+
+glm::vec2 StartScene::getMousePosition()
+{
+	return m_mousePosition;
 }

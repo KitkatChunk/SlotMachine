@@ -5,6 +5,7 @@
 #include "Scene.h"
 #include "Label.h"
 #include "StartButton.h"
+#include "QuitButton.h"
 
 class StartScene : public Scene
 {
@@ -30,6 +31,8 @@ private:
 	glm::vec2 m_mousePosition;
 
 	StartButton* m_pStartButton;
+
+	QuitButton* m_pQuitButton;
 	
 };
 

@@ -6,7 +6,7 @@ RollButton::RollButton()
 	:Button(
 		"../Assets/textures/RollButton.png",
 		"startButton",
-		START_BUTTON, glm::vec2(700.0f, 550.0f)), m_isClicked(false)
+		START_BUTTON, glm::vec2(700.0f, 575.0f)), m_isClicked(false)
 {
 
 }

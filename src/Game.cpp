@@ -15,7 +15,22 @@ Game::Game() :
 {
 	srand((unsigned)time(NULL));  // random seed
 
-	
+	/*int playerMoney = 1000;
+	int winnings = 0;
+	int jackpot = 5000;
+	int playerBet = 0;
+	std::string spinResult;
+	std::string fruits = "";
+	double winRatio = 0;
+	int grapes = 0;
+	int bananas = 0;
+	int oranges = 0;
+	int cherries = 0;
+	int bars = 0;
+	int bells = 0;
+	int sevens = 0;
+	int blanks = 0;
+	*/
 }
 
 Game::~Game()
@@ -194,6 +209,15 @@ void Game::clean()
 
 	
 }
+// Tried implementing resetAll function
+//void Game::resetAll()
+//{
+//	int	playerMoney = 1000;
+//	int	winnings = 0;
+//	int	jackpot = 5000;
+//	int	playerBet = 0;
+//
+//}
 
 void Game::handleEvents()
 {
@@ -220,3 +244,4 @@ void Game::handleEvents()
 		}
 	}
 }
+

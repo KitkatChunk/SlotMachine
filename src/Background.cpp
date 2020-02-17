@@ -3,7 +3,7 @@
 
 Background::Background()
 {
-	TheTextureManager::Instance()->load("../Assets/textures/Background.png",
+	TheTextureManager::Instance()->load("../Assets/textures/Background2.png",
 		"ocean", TheGame::Instance()->getRenderer());
 
 	// measure size by querying the texture

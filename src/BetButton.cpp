@@ -6,7 +6,7 @@ BetButton::BetButton()
 	:Button(
 		"../Assets/textures/BetButton.png",
 		"BetButton",
-		BET_BUTTON, glm::vec2(525.0f, 550.0f)), m_isClicked(false)
+		BET_BUTTON, glm::vec2(525.0f, 575.0f)), m_isClicked(false)
 {
 
 }

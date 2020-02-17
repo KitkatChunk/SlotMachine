@@ -9,6 +9,7 @@
 #include "QuitButton.h"
 #include "ResetButton.h"
 #include "Background.h"
+#include "BetLabel.h"
 
 class Level1Scene : public Scene
 {
@@ -29,7 +30,8 @@ private:
 	// game objects
 	Background* m_pBackground;
 	glm::vec2 m_mousePosition;
-
+	BetLabel* m_pBetLabel1;
+	BetLabel* m_pBetLabel;
 	ScoreLabel* m_pScoreLabel;
 	RollButton* m_pRollButton;
 	BetButton* m_pBetButton;

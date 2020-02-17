@@ -14,6 +14,8 @@ Level1Scene::~Level1Scene()
 void Level1Scene::draw()
 {
 	m_pBackground->draw();
+	m_pBetLabel1->draw();
+	m_pBetLabel->draw();
 	m_pScoreLabel->draw();
 	m_pRollButton->draw();
 	m_pBetButton->draw();
@@ -41,6 +43,7 @@ void Level1Scene::update()
 void Level1Scene::clean()
 {
 	delete m_pScoreLabel;
+	delete m_pBetLabel;
 
 }
 
@@ -151,9 +154,18 @@ void Level1Scene::start()
 
 	
 	SDL_Color blue = { 0, 0, 255, 255 };
-	m_pScoreLabel = new ScoreLabel("Score:", "Consolas", 40, blue, glm::vec2(100.0f, 550.0f));
+	m_pScoreLabel = new ScoreLabel("Score:", "Consolas", 35, blue, glm::vec2(70.0f, 500.0f));
 	m_pScoreLabel->setParent(this);
 	addChild(m_pScoreLabel);
+
+	m_pBetLabel = new BetLabel("Bet:", "Consolas", 35, blue, glm::vec2(52.0f, 475.0f));
+	m_pBetLabel->setParent(this);
+	addChild(m_pBetLabel);
+
+
+	m_pBetLabel1 = new BetLabel("Winnings:", "Consolas", 35, blue, glm::vec2(100.0f, 450.0f));
+	m_pBetLabel1->setParent(this);
+	addChild(m_pBetLabel1);
 
 	m_pBackground = new Background();
 	addChild(m_pBackground);
@@ -170,10 +182,12 @@ void Level1Scene::start()
 
 	m_pResetButton = new ResetButton();
 	m_pResetButton->setMouseButtonClicked(false);
+
 }
 
 glm::vec2 Level1Scene::getMousePosition()
 {
 	return m_mousePosition;
 }
+
 

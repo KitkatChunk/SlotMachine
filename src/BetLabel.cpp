@@ -16,6 +16,8 @@ BetLabel::BetLabel(std::string text, std::string fontName, int fontSize, SDL_Col
 	setWidth(size.x);
 	setHeight(size.y);
 	setPosition(position);
+
+
 }
 
 BetLabel::~BetLabel()

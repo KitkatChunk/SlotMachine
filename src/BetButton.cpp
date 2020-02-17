@@ -7,6 +7,8 @@ BetButton::BetButton()
 		"../Assets/textures/BetButton.png",
 		"BetButton",
 		BET_BUTTON, glm::vec2(525.0f, 575.0f)), m_isClicked(false)
+
+
 {
 
 }
@@ -21,9 +23,9 @@ bool BetButton::ButtonClick()
 	if (m_mouseOver() && m_mouseButtonClicked)
 	{
 		if (!m_isClicked)
-		{
-			std::cout << "Bet" << std::endl;
-			
+		{	
+			TheSoundManager::Instance()->load("../Assets/audio/Bet.mp3", "Bet", SOUND_SFX);
+			std::cout << "Bet" << std::endl;		
 			m_isClicked = true;
 		}
 		return true;

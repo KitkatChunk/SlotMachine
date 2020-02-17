@@ -1,7 +1,7 @@
 #include "Level1Scene.h"
 #include "Game.h"
 #include <iostream>
-
+/*Abdulkarem Alani 300993768, 2020-02-17*/
 Level1Scene::Level1Scene()
 {
 	start();
@@ -12,15 +12,17 @@ Level1Scene::~Level1Scene()
 }
 
 void Level1Scene::draw()
-{
+{	
+	
 	m_pBackground->draw();
+	m_pResetButton->draw();
 	m_pBetLabel1->draw();
 	m_pBetLabel->draw();
 	m_pScoreLabel->draw();
 	m_pRollButton->draw();
 	m_pBetButton->draw();
 	m_pQuitButton->draw();
-	m_pResetButton->draw();
+
 }
 
 void Level1Scene::update()
@@ -154,16 +156,16 @@ void Level1Scene::start()
 
 	
 	SDL_Color blue = { 0, 0, 255, 255 };
-	m_pScoreLabel = new ScoreLabel("Score:", "Consolas", 35, blue, glm::vec2(70.0f, 500.0f));
+	m_pScoreLabel = new ScoreLabel("Money:100", "Consolas", 35, blue, glm::vec2(95.0f, 500.0f));
 	m_pScoreLabel->setParent(this);
 	addChild(m_pScoreLabel);
 
-	m_pBetLabel = new BetLabel("Bet:", "Consolas", 35, blue, glm::vec2(52.0f, 475.0f));
+	m_pBetLabel = new BetLabel("Bet:10", "Consolas", 35, blue, glm::vec2(65.0f, 475.0f));
 	m_pBetLabel->setParent(this);
 	addChild(m_pBetLabel);
 
 
-	m_pBetLabel1 = new BetLabel("Winnings:", "Consolas", 35, blue, glm::vec2(100.0f, 450.0f));
+	m_pBetLabel1 = new BetLabel("Winnings:0", "Consolas", 35, blue, glm::vec2(105.0f, 450.0f));
 	m_pBetLabel1->setParent(this);
 	addChild(m_pBetLabel1);
 

@@ -5,7 +5,7 @@
 #include "TileComparators.h"
 #include <iomanip>
 
-
+/*Abdulkarem Alani 300993768, 2020-02-17*/
 Game* Game::s_pInstance = 0;
 
 // Game functions - DO NOT REMOVE ***********************************************

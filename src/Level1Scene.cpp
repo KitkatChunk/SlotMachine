@@ -13,17 +13,33 @@ Level1Scene::~Level1Scene()
 
 void Level1Scene::draw()
 {
-	m_pStartButton->draw();
+	m_pScoreLabel->draw();
+	m_pRollButton->draw();
+	m_pBetButton->draw();
+	m_pQuitButton->draw();
+	m_pResetButton->draw();
 }
 
 void Level1Scene::update()
 {
-	m_pStartButton->setMousePosition(m_mousePosition);
-	m_pStartButton->ButtonClick();
+	//Roll
+	m_pRollButton->setMousePosition(m_mousePosition);
+	m_pRollButton->ButtonClick();
+	//Bet
+	m_pBetButton->setMousePosition(m_mousePosition);
+	m_pBetButton->ButtonClick();
+	//Quit
+	m_pQuitButton->setMousePosition(m_mousePosition);
+	m_pQuitButton->ButtonClick();
+	//reset
+	m_pResetButton->setMousePosition(m_mousePosition);
+	m_pResetButton->ButtonClick();
 }
 
 void Level1Scene::clean()
 {
+	delete m_pScoreLabel;
+
 }
 
 void Level1Scene::handleEvents()
@@ -50,7 +66,10 @@ void Level1Scene::handleEvents()
 			switch(event.button.button)
 			{
 			case SDL_BUTTON_LEFT:
-				m_pStartButton->setMouseButtonClicked(true);
+				m_pRollButton->setMouseButtonClicked(true);
+				m_pBetButton->setMouseButtonClicked(true);
+				m_pQuitButton->setMouseButtonClicked(true);
+				m_pResetButton->setMouseButtonClicked(true);
 				break;
 			}
 		
@@ -59,7 +78,10 @@ void Level1Scene::handleEvents()
 			switch (event.button.button)
 			{
 			case SDL_BUTTON_LEFT:
-				m_pStartButton->setMouseButtonClicked(false);
+				m_pRollButton->setMouseButtonClicked(false);
+				m_pBetButton->setMouseButtonClicked(false);
+				m_pQuitButton->setMouseButtonClicked(false);
+				m_pResetButton->setMouseButtonClicked(false);
 				break;
 			}
 			break;
@@ -124,9 +146,23 @@ void Level1Scene::handleEvents()
 
 void Level1Scene::start()
 {
+	SDL_Color blue = { 0, 0, 255, 255 };
+	m_pScoreLabel = new ScoreLabel("Score:", "Consolas", 40, blue, glm::vec2(100.0f, 550.0f));
+	m_pScoreLabel->setParent(this);
+	addChild(m_pScoreLabel);
+
 	// allocates memory on the heap for this game object
-	m_pStartButton = new StartButton();
-	m_pStartButton->setMouseButtonClicked(false);
+	m_pRollButton = new RollButton();
+	m_pRollButton->setMouseButtonClicked(false);
+
+	m_pBetButton = new BetButton();
+	m_pBetButton->setMouseButtonClicked(false);
+
+	m_pQuitButton = new QuitButton();
+	m_pQuitButton->setMouseButtonClicked(false);
+
+	m_pResetButton = new ResetButton();
+	m_pResetButton->setMouseButtonClicked(false);
 }
 
 glm::vec2 Level1Scene::getMousePosition()
@@ -134,38 +170,3 @@ glm::vec2 Level1Scene::getMousePosition()
 	return m_mousePosition;
 }
 
-/*
-bool Level1Scene::m_MouseOver()
-{
-	float topLeftX = m_pStartButton->getPosition().x - m_pStartButton->getWidth() * 0.5;
-	float topLeftY = m_pStartButton->getPosition().y - m_pStartButton->getHeight() * 0.5;
-	float width = m_pStartButton->getWidth();
-	float height = m_pStartButton->getHeight();
-
-	
-	if(m_mousePosition.x > topLeftX &&
-		m_mousePosition.x < topLeftX + width &&
-		m_mousePosition.y > topLeftY &&
-		m_mousePosition.y < topLeftY + height)
-	{
-		//std::cout << "Mouse Over!!" << std::endl;
-
-		m_pStartButton->setAlpha(178);
-		return true;
-	}
-	else
-	{
-		m_pStartButton->setAlpha(255);
-		return false;
-	}
-}
-
-void Level1Scene::m_MouseClick()
-{
-	if(m_MouseOver() && m_mouseClicked)
-	{
-		std::cout << "Mouse Button Clicked!" << std::endl;
-	}
-}
-
-*/

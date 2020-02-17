@@ -20,7 +20,7 @@ void StartScene::draw()
 {
 	m_pStartLabel->draw();
 	m_pStartButton->draw();
-	m_pQuitButton->draw();
+//	m_pQuitButton->draw();
 
 	
 }
@@ -30,8 +30,8 @@ void StartScene::update()
 	m_pStartButton->setMousePosition(m_mousePosition);
 	m_pStartButton->ButtonClick();
 
-	m_pQuitButton->setMousePosition(m_mousePosition);
-	m_pQuitButton->ButtonClick();
+	//m_pQuitButton->setMousePosition(m_mousePosition);
+	//m_pQuitButton->ButtonClick();
 
 
 }
@@ -40,7 +40,7 @@ void StartScene::clean()
 {
 	delete m_pStartLabel;
 	delete m_pStartButton;
-	delete m_pQuitButton;
+
 
 	removeAllChildren();
 }
@@ -68,7 +68,7 @@ void StartScene::handleEvents()
 			case SDL_BUTTON_LEFT:
 				m_pStartButton->setMouseButtonClicked(true);
 			//	TheGame::Instance()->changeSceneState(SceneState::LEVEL1_SCENE);
-				m_pQuitButton->setMouseButtonClicked(true);
+			
 				break;
 			}
 			break;
@@ -78,7 +78,7 @@ void StartScene::handleEvents()
 			{
 			case SDL_BUTTON_LEFT:
 				m_pStartButton->setMouseButtonClicked(false);
-				m_pQuitButton->setMouseButtonClicked(false);
+			
 				break;
 			}
 			break;
@@ -115,8 +115,6 @@ void StartScene::start()
 	m_pStartButton = new StartButton();
 	m_pStartButton->setMouseButtonClicked(false);
 
-	m_pQuitButton = new QuitButton();
-	m_pQuitButton->setMouseButtonClicked(false);
 	
 	//When Start button is clicked do:
 

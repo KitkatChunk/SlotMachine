@@ -4,9 +4,9 @@
 BetButton::BetButton()
 // call super constructor
 	:Button(
-		"../Assets/textures/StartButton.png",
+		"../Assets/textures/BetButton.png",
 		"BetButton",
-		BET_BUTTON, glm::vec2(360.0f, 300.0f)), m_isClicked(false)
+		BET_BUTTON, glm::vec2(525.0f, 550.0f)), m_isClicked(false)
 {
 
 }

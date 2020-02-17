@@ -3,7 +3,11 @@
 #define __LEVEL_1_SCENE__
 
 #include "Scene.h"
-#include "StartButton.h"
+#include "ScoreLabel.h"
+#include "RollButton.h"
+#include "BetButton.h"
+#include "QuitButton.h"
+#include "ResetButton.h"
 
 class Level1Scene : public Scene
 {
@@ -22,10 +26,13 @@ public:
 
 private:
 	// game objects
-
+	ScoreLabel* m_pScoreLabel;
 	glm::vec2 m_mousePosition;
 	
-	StartButton* m_pStartButton;
+	RollButton* m_pRollButton;
+	BetButton* m_pBetButton;
+	QuitButton* m_pQuitButton;
+	ResetButton* m_pResetButton;
 };
 
 #endif /* defined (__LEVEL_1_SCENE__) */

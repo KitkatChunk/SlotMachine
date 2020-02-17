@@ -4,9 +4,9 @@
 QuitButton::QuitButton()
 // call super constructor
 	:Button(
-		"../Assets/textures/StartButton.png",
+		"../Assets/textures/Quit.png",
 		"QuitButton",
-		START_BUTTON, glm::vec2(100.0f, 300.0f)), m_isClicked(false)
+		START_BUTTON, glm::vec2(700.0f, 50.0f)), m_isClicked(false)
 {
 
 }

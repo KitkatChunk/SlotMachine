@@ -177,7 +177,9 @@
     <ClCompile Include="..\src\PlayScene.cpp" />
     <ClCompile Include="..\src\QuitButton.cpp" />
     <ClCompile Include="..\src\ResetButton.cpp" />
+    <ClCompile Include="..\src\RollButton.cpp" />
     <ClCompile Include="..\src\Scene.cpp" />
+    <ClCompile Include="..\src\ScoreLabel.cpp" />
     <ClCompile Include="..\src\ship.cpp" />
     <ClCompile Include="..\src\SoundManager.cpp" />
     <ClCompile Include="..\src\StartButton.cpp" />
@@ -212,8 +214,10 @@
     <ClInclude Include="..\src\PlayScene.h" />
     <ClInclude Include="..\src\QuitButton.h" />
     <ClInclude Include="..\src\ResetButton.h" />
+    <ClInclude Include="..\src\RollButton.h" />
     <ClInclude Include="..\src\Scene.h" />
     <ClInclude Include="..\src\SceneState.h" />
+    <ClInclude Include="..\src\ScoreLabel.h" />
     <ClInclude Include="..\src\ShapeType.h" />
     <ClInclude Include="..\src\ship.h" />
     <ClInclude Include="..\src\SoundManager.h" />

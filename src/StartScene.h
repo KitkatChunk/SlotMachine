@@ -5,7 +5,6 @@
 #include "Scene.h"
 #include "Label.h"
 #include "StartButton.h"
-#include "QuitButton.h"
 
 class StartScene : public Scene
 {
@@ -32,7 +31,6 @@ private:
 
 	StartButton* m_pStartButton;
 
-	QuitButton* m_pQuitButton;
 	
 };
 

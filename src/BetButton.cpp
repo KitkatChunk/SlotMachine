@@ -23,6 +23,7 @@ bool BetButton::ButtonClick()
 		if (!m_isClicked)
 		{
 			std::cout << "Bet" << std::endl;
+			
 			m_isClicked = true;
 		}
 		return true;

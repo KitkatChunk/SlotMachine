@@ -13,6 +13,7 @@ Level1Scene::~Level1Scene()
 
 void Level1Scene::draw()
 {
+	m_pBackground->draw();
 	m_pScoreLabel->draw();
 	m_pRollButton->draw();
 	m_pBetButton->draw();
@@ -22,6 +23,7 @@ void Level1Scene::draw()
 
 void Level1Scene::update()
 {
+	
 	//Roll
 	m_pRollButton->setMousePosition(m_mousePosition);
 	m_pRollButton->ButtonClick();
@@ -146,10 +148,15 @@ void Level1Scene::handleEvents()
 
 void Level1Scene::start()
 {
+
+	
 	SDL_Color blue = { 0, 0, 255, 255 };
 	m_pScoreLabel = new ScoreLabel("Score:", "Consolas", 40, blue, glm::vec2(100.0f, 550.0f));
 	m_pScoreLabel->setParent(this);
 	addChild(m_pScoreLabel);
+
+	m_pBackground = new Background();
+	addChild(m_pBackground);
 
 	// allocates memory on the heap for this game object
 	m_pRollButton = new RollButton();
